@@ -12,14 +12,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "nestjs-clean-architecture-real-world",\
+        "name": "nestjs-clean-architecture-realworld",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["nestjs-clean-architecture-real-world", ["workspace:."]]\
+      ["nestjs-clean-architecture-realworld", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -32,11 +32,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["nestjs-clean-architecture-real-world", [\
+      ["nestjs-clean-architecture-realworld", [\
         ["workspace:.", {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["nestjs-clean-architecture-real-world", "workspace:."]\
+            ["nestjs-clean-architecture-realworld", "workspace:."]\
           ],\
           "linkType": "SOFT"\
         }]\

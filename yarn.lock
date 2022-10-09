@@ -4,8 +4,8 @@
 __metadata:
   version: 6
 
-"nestjs-clean-architecture-real-world@workspace:.":
+"nestjs-clean-architecture-realworld@workspace:.":
   version: 0.0.0-use.local
-  resolution: "nestjs-clean-architecture-real-world@workspace:."
+  resolution: "nestjs-clean-architecture-realworld@workspace:."
   languageName: unknown
   linkType: soft
