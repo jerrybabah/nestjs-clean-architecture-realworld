@@ -2,11 +2,11 @@ import {
   Controller,
   Get, Post, Put, Delete,
   Query, Param, Body,
-  ParseIntPipe,
+  ParseIntPipe, DefaultValuePipe,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { SingleArticle, MultipleArticles, CreateArticle, UpdateArticle } from '@/interface/dtos';
+import { SingleArticle, MultipleArticles, ArticleCreation, ArticleModification } from '@/interface/dtos';
 
 @ApiTags('Article')
 @Controller()
@@ -14,11 +14,11 @@ export class ArticleController {
 
   @Get('/articles')
   async getArticlesCtrl(
-    @Query('tag') tag: string,
-    @Query('author') author: string,
-    @Query('favorited') favorited: string,
-    @Query('limit', ParseIntPipe) limit: number,
-    @Query('offset', ParseIntPipe) offset: number,
+    @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
+    @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number,
+    @Query('tag') tag?: string,
+    @Query('author') author?: string,
+    @Query('favorited') favorited?: string,
   ): Promise<MultipleArticles> {
     console.log(tag, author, favorited, limit, offset);
 
@@ -27,8 +27,8 @@ export class ArticleController {
 
   @Get('/articles/feed')
   async getArticleFeedCtrl(
-    @Query('limit', ParseIntPipe) limit: number,
-    @Query('offset', ParseIntPipe) offset: number,
+    @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
+    @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number,
   ): Promise<MultipleArticles> {
     console.log(limit, offset);
 
@@ -46,18 +46,18 @@ export class ArticleController {
 
   @Post('/articles')
   async createArticleCtrl(
-    @Body() createArticle: CreateArticle,
+    @Body() articleCreation: ArticleCreation,
   ): Promise<SingleArticle> {
-    console.log(createArticle);
+    console.log(articleCreation);
 
     return '' as any;
   }
 
   @Put('/articles/:slug')
   async updateArticleCtrl(
-    @Body() updateArticle: UpdateArticle,
+    @Body() articleModification: ArticleModification,
   ): Promise<SingleArticle> {
-    console.log(updateArticle);
+    console.log(articleModification);
 
     return '' as any;
   }

@@ -4,14 +4,14 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { ListOfTags } from '@/interface/dtos';
+import { MultipleTags } from '@/interface/dtos';
 
 @ApiTags('Tag')
 @Controller()
 export class TagController {
 
   @Get('/tags')
-  public getTagsCtrl(): Promise<ListOfTags> {
+  public getTagsCtrl(): Promise<MultipleTags> {
     return '' as any;
   }
 }

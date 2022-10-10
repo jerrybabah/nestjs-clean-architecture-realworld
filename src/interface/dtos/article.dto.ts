@@ -1,3 +1,5 @@
+import { Author } from './user.dto';
+
 export class Article {
   slug!: string;
 
@@ -17,12 +19,7 @@ export class Article {
 
   favoritesCount!: number;
 
-  author!: {
-    username: string,
-    bio: string,
-    image: string,
-    following: boolean,
-  };
+  author!: Author;
 }
 
 export class SingleArticle {
@@ -35,7 +32,7 @@ export class MultipleArticles {
   articlesCount!: number;
 }
 
-export class CreateArticle {
+export class ArticleCreation {
   article!: {
     title: string,
     description: string,
@@ -44,7 +41,7 @@ export class CreateArticle {
   };
 }
 
-export class UpdateArticle {
+export class ArticleModification {
   article!: {
     title?: string | null,
     description?: string | null,

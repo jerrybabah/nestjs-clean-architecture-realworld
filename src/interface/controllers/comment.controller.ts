@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { SingleComment, MultipleComments, AddComment } from '@/interface/dtos';
+import { SingleComment, MultipleComments, CommentCreation } from '@/interface/dtos';
 
 @ApiTags('Comment')
 @Controller()
@@ -15,9 +15,9 @@ export class CommentController {
   @Post('/articles/:slug/comments')
   async addCommentCtrl(
     @Param('slug') slug: string,
-    @Body() addComment: AddComment,
+    @Body() commentCreation: CommentCreation,
   ): Promise<SingleComment> {
-    console.log(slug, addComment);
+    console.log(slug, commentCreation);
 
     return '' as any;
   }

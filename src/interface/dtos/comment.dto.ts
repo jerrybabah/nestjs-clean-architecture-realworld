@@ -1,3 +1,5 @@
+import { Author } from './user.dto';
+
 export class Comment {
   id!: number;
   
@@ -7,12 +9,7 @@ export class Comment {
   
   body!: string;
   
-  author!: {
-    username: string,
-    bio: string,
-    image: string,
-    following: boolean,
-  };
+  author!: Author;
 }
 
 export class SingleComment {
@@ -23,7 +20,7 @@ export class MultipleComments {
   comments!: Comment[];
 }
 
-export class AddComment {
+export class CommentCreation {
   comment!: {
     body: string,
   };

@@ -1,3 +1,3 @@
-export class ListOfTags {
+export class MultipleTags {
   tags!: string[];
 }
