@@ -5,7 +5,7 @@ export class User {
 
   username!: string;
 
-  bio!: string;
+  bio!: string | null;
 
   image!: string | null;
 }
@@ -13,7 +13,7 @@ export class User {
 export class Profile {
   username!: string;
 
-  bio!: string;
+  bio!: string | null;
 
   image!: string | null;
 
@@ -24,7 +24,7 @@ export class Profile {
 export class Author {
   username!: string;
 
-  bio!: string;
+  bio!: string | null;
 
   image!: string | null;
 
