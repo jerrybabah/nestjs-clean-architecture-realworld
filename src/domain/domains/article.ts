@@ -31,7 +31,7 @@ export class Article {
     tags?: string[],
   }) {
     this.title = articleValue.title;
-    this.slug = articleValue.slug ?? Article.getSlug(articleValue.title);
+    this.slug = articleValue.slug ?? Article.createSlug(articleValue.title);
     this.description = articleValue.description;
     this.body = articleValue.body;
     this.createdAt = articleValue.createdAt;
@@ -41,28 +41,7 @@ export class Article {
     this.tags = articleValue.tags;
   }
 
-  private static getSlug(text: string): string {
+  private static createSlug(text: string): string {
     return text.split(' ').join('-');
-  }
-
-  private updateTitle(title: string) {
-    this.title = title;
-    this.slug = Article.getSlug(title);
-  }
-
-  isFavoritedByUser(user: User): boolean {
-    if (this.favoritors === undefined) {
-      throw new Error();
-    }
-
-    return this.favoritors.some((favoritor) => favoritor.isEqual(user));
-  }
-
-  getFavoritesCount(): number {
-    if (this.favoritors === undefined) {
-      throw new Error();
-    }
-
-    return this.favoritors.length;
   }
 }

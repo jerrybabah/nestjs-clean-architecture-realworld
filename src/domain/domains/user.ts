@@ -22,16 +22,4 @@ export class User {
     this.image = userValue.image ?? null;
     this.followers = userValue.followers;
   }
-
-  isEqual(user: User): boolean {
-    return this.username === user.username;
-  }
-
-  isFollowing(user: User): boolean {
-    if (this.followers === undefined) {
-      throw new Error();
-    }
-
-    return this.followers.some((follower) => follower.isEqual(user));
-  }
 }
