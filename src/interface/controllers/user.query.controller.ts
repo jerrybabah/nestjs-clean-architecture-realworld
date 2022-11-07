@@ -1,5 +1,5 @@
 import {
-  Controller,
+  Controller, Inject,
   Get,
   Param,
 } from '@nestjs/common';
@@ -12,7 +12,7 @@ import { SingleUser, SingleProfile } from '../dtos';
 @Controller()
 export class UserQueryController {
   constructor(
-    private userQueryService: IUserQueryService,
+    @Inject('UserQueryService') private userQueryService: IUserQueryService,
   ) {}
 
   @Get('/user')

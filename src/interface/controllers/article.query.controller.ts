@@ -1,5 +1,5 @@
 import {
-  Controller,
+  Controller, Inject,
   Get,
   Query, Param,
   ParseIntPipe, DefaultValuePipe,
@@ -13,7 +13,7 @@ import { SingleArticle, MultipleArticles } from '../dtos';
 @Controller()
 export class ArticleQueryController {
   constructor(
-    private articleQueryService: IArticleQueryService,
+    @Inject('ArticleQueryService') private articleQueryService: IArticleQueryService,
   ) {}
 
   @Get('/articles')

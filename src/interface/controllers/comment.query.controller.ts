@@ -1,5 +1,5 @@
 import {
-  Controller,
+  Controller, Inject,
   Get,
   Param,
 } from '@nestjs/common';
@@ -12,7 +12,7 @@ import { MultipleComments } from '../dtos';
 @Controller()
 export class CommentQueryController {
   constructor(
-    private commentQueryService: ICommentQueryService,
+    @Inject('CommentQueryService') private commentQueryService: ICommentQueryService,
   ) {}
 
   @Get('/articles/:slug/comments')
