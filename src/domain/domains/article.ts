@@ -1,35 +1,43 @@
 import { User } from './user';
+import { Comment } from './comment';
 
 export class Article {
-  private title: string;
+  id: any;
 
-  private slug: string;
+  title: string;
 
-  private description: string;
+  slug: string;
 
-  private body: string;
+  description: string;
 
-  private tags?: string[];
+  body: string;
 
-  private createdAt?: Date;
+  tags?: string[];
 
-  private updatedAt?: Date;
+  createdAt: Date;
 
-  private author?: User;
+  updatedAt: Date;
 
-  private favoritors?: User[];
+  author?: User;
+
+  favoritors?: User[];
+
+  comments?: Comment[];
 
   constructor(articleValue: {
+    id: any,
     slug?: string,
     title: string,
     description: string,
     body: string,
-    createdAt?: Date,
-    updatedAt?: Date,
+    createdAt: Date,
+    updatedAt: Date,
     author?: User,
     favoritors?: User[],
     tags?: string[],
+    comments?: Comment[],
   }) {
+    this.id = articleValue.id;
     this.title = articleValue.title;
     this.slug = articleValue.slug ?? Article.createSlug(articleValue.title);
     this.description = articleValue.description;
@@ -39,9 +47,10 @@ export class Article {
     this.author = articleValue.author;
     this.favoritors = articleValue.favoritors;
     this.tags = articleValue.tags;
+    this.comments = articleValue.comments;
   }
 
-  private static createSlug(text: string): string {
+  static createSlug(text: string): string {
     return text.split(' ').join('-');
   }
 }
